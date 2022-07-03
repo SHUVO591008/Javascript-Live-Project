@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependable select dropdown</title>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ 
+<style>
+ 
+</style>
+</head>
+<body>
+<div  class="col-md-12">
+    <div  class="row">
+        <div class="col-md-12">
+            <div class="row ">
+            
+                    <h3 class="text-center">Dependable select dropdown</h3>
+                   
+
+                    <div class="col-md-6">
+                        <select class="form-control" id="select" name="select" onchange="change()">
+                            <option>Select option</option>
+                            <option>Chittagong</option>
+                            <option>Dhaka</option>
+                            <option>Sylhet</option>
+
+                        </select>
+                    </div>
+
+                  
+                    
+                    <div class="col-md-6" id="nextselect">
+                   
+                    </div>
+
+             
+                
+               
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+    <script>
+
+        function change(){
+            var value = document.getElementById('select').value;
+
+            var store="";
+
+            if(value=="Chittagong"){
+                store=["Anwara","Banshkhali","Boalkhali"];
+            }else if(value=="Dhaka"){
+                store=["Dhamrai","Dohar","Keraniganj"];
+            }else if(value=="Sylhet"){
+                store=["Balaganj","Beanibazar","Bishwanath"];
+            }
+
+            var string="";
+        
+            for (var i = 0; i <store.length; i++) {
+
+               string += "<option>"+store[i]+"</option>";
+
+            }
+            
+            string = "<select class='form-control'>"+string+"</select>";
+
+            document.getElementById('nextselect').innerHTML=string;
+
+            
+        }
+
+    
+    </script>
+    
+</body>
+</html>

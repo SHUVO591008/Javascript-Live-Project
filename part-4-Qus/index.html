@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ 
+<style>
+   p {
+    font-size: 24px;
+    font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+    <div class="col-md-12">
+        <div class="row">
+            <form>
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <p>Q1. What is 8+1=?</p>
+                    <h4><input type="radio" class="form-check-input" name="q1"> 3<br></h4>
+                    <h4><input type="radio" class="form-check-input" name="q1" id="q1"> 9<br></h4>
+                    <h4><input type="radio" class="form-check-input" name="q1"> 2<br></h4>
+                    <h4><input type="radio" class="form-check-input" name="q1"> 10<br></h4>
+                    
+                </div>
+
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <p>Q2. What is 5+1=?</p>
+                    <h4><input type="radio" class="form-check-input" name="q2" id="q2"> 6<br></h4>
+                    <h4><input type="radio" class="form-check-input" name="q2"> 9<br></h4>
+                    <h4><input type="radio" class="form-check-input" name="q2"> 2<br></h4>
+                    <h4><input type="radio" class="form-check-input" name="q2"> 10<br></h4>
+                    
+                </div>
+
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <p>Q3. What is 5+2=?</p>
+                    <h4><input type="radio" class="form-check-input" name="q3"> 6<br></h4>
+                    <h4><input type="radio" class="form-check-input" name="q3"> 5<br></h4>
+                    <h4><input type="radio" class="form-check-input" name="q3"> 2<br></h4>
+                    <h4><input type="radio" class="form-check-input" name="q3" id="q3"> 7<br></h4>
+                    
+                </div>
+                <div class="col-md-2"></div>
+                <button class="btn btn-warning" id="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+       
+        var submit =document.getElementById('submit');
+
+        submit.addEventListener('click',function(){
+            var q1 = document.getElementById('q1').checked;
+            var q2 = document.getElementById('q2').checked;
+            var q3 = document.getElementById('q3').checked;
+
+            var count = 0;
+
+            if(q1){
+                count++;
+            }
+
+            if(q2){
+                count++;
+            }
+
+            if(q3){
+                count++;
+            }
+
+            alert("Your Result Is "+count);
+        })
+        
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCam</title>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        video#video {
+            border: 5px solid rgb(241, 132, 7);
+            width: 500px;
+            height: 500px;
+            background-color: blue;
+        }
+        canvas#canvas {
+            background-color: blue;
+            border: 5px solid rgb(241, 132, 7);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <video id="video" autoplay="true"></video>
+            </div>
+
+            <div class="col-md-6">
+                <canvas id="canvas" width="500" height="500">
+
+                </canvas>
+            </div>
+
+        </div>
+        
+
+       
+        <button id="takePhoto" class="btn btn-success">
+            Take Photo
+        </button>
+    </div>
+
+    <script>
+        var video = document.getElementById('video');
+        var WebCam = navigator.mediaDevices.getUserMedia();
+    
+
+        if(WebCam){
+            navigator.mediaDevices.getUserMedia({
+                video:true,
+                audio:true
+            })
+
+            .then(function(Live){
+                video.srcObject=Live;
+            })
+            .catch(function(error){
+                console.log(error);
+            })
+        }
+
+        var canvas = document.getElementById('canvas');
+        var takePhoto = document.getElementById('takePhoto');
+
+        var contxt = canvas.getContext('2d');
+        takePhoto.addEventListener('click',function(){
+            contxt.drawImage(video,0,0,500,500);
+        })
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student ADD TO-DO-ITEM</title>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ 
+<style>
+    li {
+    text-transform: uppercase;
+    font-size: 22px;
+    /* text-align: justify; */
+    }
+</style>
+</head>
+<body>
+<div  class="col-md-12">
+    <div  class="row">
+        <div class="col-md-6">
+            <div class="row">
+            
+                    <h3 class="text-center">Student ADD TO-DO-ITEM</h3>
+
+                    <div class="col-md-10">
+                        <input placeholder="Name" type="text" id="Name" class="form-control">
+                    </div>
+                    <div style="margin-top: 2rem;" class="col-md-10">
+                        <input placeholder="ID" type="text" id="ID" class="form-control">
+                    </div>
+                    <div style="margin-top: 2rem;" class="col-md-10">
+                        <input placeholder="Dept" type="text" id="Dept" class="form-control">
+                    </div>
+                    <div style="margin-top: 2rem;" class="col-md-10">
+                        <input placeholder="GPA" type="text" id="GPA" class="form-control">
+                    </div>
+
+                    <div style="margin-top: 2rem;" class="col-md-12">
+                        <button id="addbtn" class="btn btn-success">Add</button>
+                    </div>
+                
+               
+            </div>
+        </div>
+        <div class="col-md-6">
+            <table id="tableId" class="table">
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>Dept</th>
+                        <th>GPA</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+              
+                </tbody>
+               
+            </table>
+        </div>
+    </div>
+</div>
+
+    <script>
+
+      
+        var addbtn = document.getElementById('addbtn');
+        var stName = document.getElementById("Name");
+        var ID = document.getElementById("ID");
+        var Dept = document.getElementById("Dept");
+        var GPA = document.getElementById("GPA");
+        var table = document.getElementById("tableId");
+
+        addbtn.addEventListener('click',function(pera){
+            pera.preventDefault();
+            
+
+            if(stName.value==''){
+                alert('Name Field Required')
+            }else if(ID.value==''){
+                alert('ID Field Required')
+            }else if(Dept.value==''){
+                alert('Dept Field Required')
+            }else if(GPA.value==''){
+                alert('GPA Field Required')
+            }else{
+                var tbody =document.getElementById('tbody');
+                var tr = document.createElement('tr');
+                var totalRowCount = table.rows.length; // 5
+
+                //SL
+                var td = document.createElement('td');
+                td.innerHTML=totalRowCount;
+                tr.appendChild(td);
+                //name
+                var td = document.createElement('td');
+                td.innerHTML=stName.value;
+                tr.appendChild(td);
+                 //ID
+                var td = document.createElement('td');
+                td.innerHTML=ID.value;
+                tr.appendChild(td);
+                //Dept
+                var td = document.createElement('td');
+                td.innerHTML=Dept.value;
+                tr.appendChild(td);
+                //GPA
+                var td = document.createElement('td');
+                td.innerHTML=GPA.value;
+                tr.appendChild(td);
+
+
+                tbody.appendChild(tr);
+                
+            }
+            
+        })
+ 
+    </script>
+    
+</body>
+</html>
